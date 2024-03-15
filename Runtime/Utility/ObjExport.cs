@@ -262,7 +262,8 @@ namespace Scopa {
             foreach(var mat in materials) {
 				sb.AppendLine($"newmtl {GetMaterialFilename(mat)}");
 				sb.AppendLine("Ka 1.000 1.000 1.000");
-				sb.AppendLine("Kd 1.000 1.000 1.000\n\n");
+				sb.AppendLine("Kd 1.000 1.000 1.000");
+				sb.AppendLine("map_Kd " + "textures/" + GetMaterialFilename(mat) + ".jpg\n\n");
             }
 			File.WriteAllText( filePath, sb.ToString() );
         }
