@@ -128,6 +128,9 @@ namespace Scopa {
             [Tooltip("(optional) custom prefab templates to use, just for this entity type")]
             public GameObject entityPrefab, meshPrefab;
 
+            [Tooltip("(optional) override for the display mesh!")]
+            public GameObject meshOverride;
+
             [Tooltip("if exporting an OBJ preview, should we scale the model? Set to <= 0 to disable OBJ generation for this entity.")]
             public float objScale = 0f;
 
