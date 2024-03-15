@@ -203,9 +203,10 @@ namespace Scopa {
 				t.localScale = oldScale;
 			}
 			
+			Directory.CreateDirectory(Path.Combine(Path.GetDirectoryName(fileName), "textures"));
 
             if ( materialLibrary.Count > 0 && writeTextures)
-                WriteTextures( Directory.GetParent(Path.GetDirectoryName(fileName)).ToString() + "/textures/", materialLibrary );
+                WriteTextures( Path.Combine(Path.GetDirectoryName(fileName), "textures/"), materialLibrary, 2 );
             // TODO: create textures folder if it doesn't exist already
 
 			// Unity's OBJ importer *requires* a .MTL file (with no spaces!) to import submeshes, otherwise it all gets merged together as one
