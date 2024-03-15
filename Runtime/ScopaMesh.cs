@@ -464,8 +464,8 @@ namespace Scopa {
                 #if UNITY_EDITOR
                 if ( config.addLightmapUV2 ) {
                     UnwrapParam.SetDefaults( out var unwrap);
-                    unwrap.packMargin *= 2;
                     Unwrapping.GenerateSecondaryUVSet( newMesh, unwrap );
+                    unwrap.packMargin *= 4;
                 }
 
                 if ( config.meshCompression != ScopaMapConfig.ModelImporterMeshCompression.Off)
