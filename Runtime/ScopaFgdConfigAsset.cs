@@ -164,8 +164,8 @@ namespace Scopa {
                     sb.Append($"color({editorColor.r} {editorColor.g} {editorColor.b}) ");
                 }
 
-                if ( classType == FgdClassType.PointClass && entityPrefab != null && objScale > 0 ) {
-                    sb.Append($"model(\"assets/{className}.obj\") ");
+                if ( classType == FgdClassType.PointClass && (entityPrefab != null || meshOverride != null) && objScale > 0 ) {
+                    sb.Append($"model(\"preview/{className}.obj\") ");
                 }
 
                 // gather additional properties with [BindFgd] attribute in the entityPrefab
