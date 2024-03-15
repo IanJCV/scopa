@@ -524,8 +524,10 @@ namespace Scopa {
                     }
                 }
 
-                if ( config.callOnEntityImport )
+                if (config.callOnEntityImport)
+                {
                     entComp.OnEntityImport( entData );
+                }
             }
         }
 
