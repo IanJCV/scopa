@@ -505,6 +505,18 @@ namespace Scopa {
                                 if ( entData.TryGetAngles3D(attribute.propertyKey, out var angle3D) )
                                     objectFields[i].SetValue(entComp, angle3D.eulerAngles);
                                 break;
+                            case BindFgd.VarType.Choices:
+                                if (entData.TryGetInt(attribute.propertyKey, out var choice))
+                                {
+                                    if (!Enum.IsDefined(objectFields[i].FieldType, choice))
+                                    {
+                                        Debug.LogError($"Value {choice} is not defined in enum type {objectFields[i].FieldType.Name}!", entComp as UnityEngine.Object);
+                                        break;
+                                    }
+                                    var o = Enum.ToObject(objectFields[i].FieldType, choice);
+                                    objectFields[i].SetValue(entComp, o);
+                                }
+                                break;
                             default:
                                 Debug.LogError( $"BindFgd named {objectFields[i].Name} / {attribute.propertyKey} has FGD var type {attribute.propertyType} ... but no case handler for it yet!");
                                 break;

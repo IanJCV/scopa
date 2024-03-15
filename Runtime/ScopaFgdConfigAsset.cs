@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -209,6 +210,14 @@ namespace Scopa {
                                     case BindFgd.VarType.Angles3D:
                                         propType = FgdPropertyType.String;
                                         propDefaultValue = propDefaultValue.Substring(1, propDefaultValue.Length-2).Replace(",", "");
+                                        break;
+                                    case BindFgd.VarType.Choices:
+                                        propType = FgdPropertyType.Choices;
+                                        string[] names = System.Enum.GetNames(objectFields[i].FieldType);
+                                        foreach (var name in names)
+                                        {
+                                            propChoices.Add(new FgdEnum(name, (int)Enum.Parse(objectFields[i].FieldType, name)));
+                                        }
                                         break;
                                     default:
                                         Debug.LogError( $"BindFgd named {objectFields[i].Name} / {attribute.propertyKey} has FGD var type {attribute.propertyType} ... but no case handler for it yet!");

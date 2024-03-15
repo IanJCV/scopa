@@ -44,7 +44,8 @@ namespace Scopa {
             /// <summary>applies axis correction BUT no MAP scaling correction</summary>
             Vector3Unscaled,
             /// <summary>bind to Vector3 as axis-corrected euler angles</summary>
-            Angles3D, 
+            Angles3D,
+            Choices
         }
     }
 
