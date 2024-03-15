@@ -60,6 +60,7 @@ namespace Scopa {
         /// <summary> utility function to collect all defined entity types together, as well as all the entities defined in any FGD includes </summary>
         List<FgdClass> GetAllEntityTypesWithIncludes() {
             var allEntityTypes = new List<FgdClass>( entityTypes );
+            allEntityTypes.Add(worldspawn);
             foreach ( var include in includeFgds ) {
                 allEntityTypes.AddRange( include.config.entityTypes );
             }
