@@ -70,7 +70,7 @@ namespace Scopa {
 
         /// <summary> returns null if no entityPrefab defined; note: entityClassname must already be ToLowerInvariant() and match exactly </summary>
         public GameObject GetEntityPrefabFor(string entityClassname) {
-            var search = GetAllEntityTypesWithIncludes().Where( cfg => entityClassname == cfg.className.ToLowerInvariant() ).FirstOrDefault();
+            var search = GetAllEntityTypesWithIncludes().Where( cfg => entityClassname.ToLowerInvariant() == cfg.className.ToLowerInvariant() ).FirstOrDefault();
             if ( search != null && search.entityPrefab != null) {
                 return search.entityPrefab;
             }
@@ -79,7 +79,7 @@ namespace Scopa {
 
         /// <summary> returns null if no meshPrefab found; note: entityClassname must already be ToLowerInvariant() and match exactly </summary>
         public GameObject GetMeshPrefabFor(string entityClassname) {
-            var search = GetAllEntityTypesWithIncludes().Where( cfg => entityClassname == cfg.className.ToLowerInvariant() ).FirstOrDefault();
+            var search = GetAllEntityTypesWithIncludes().Where( cfg => entityClassname.ToLowerInvariant() == cfg.className.ToLowerInvariant() ).FirstOrDefault();
             if ( search != null && search.meshPrefab != null) {
                 return search.meshPrefab;
             }
